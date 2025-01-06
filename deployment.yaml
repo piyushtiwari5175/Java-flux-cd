@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: libmanager-deployment
+  labels:
+    app: libmanager
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: libmanager
+  template:
+    metadata:
+      labels:
+        app: libmanager
+    spec:
+      containers:
+      - name: libmanager
+        image: saish1717/libmanager:latest
+        ports:
+        - containerPort: 8080
+
